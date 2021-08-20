@@ -20,8 +20,8 @@ namespace EscapeCovid
         int ammo = 10;
         int virusSpeed = 3;
         int score;
-        Random random = new Random();
-        List<PictureBox> viruesList = new List<PictureBox>();
+        Random randNum = new Random();
+        List<PictureBox> virusesList = new List<PictureBox>();
 
         public EscapeCovid()
         {
@@ -50,7 +50,7 @@ namespace EscapeCovid
             {
                 player.Left += speed;
             }
-            if (goUp == true && player.Top > 0)
+            if (goUp == true && player.Top > 40)
             {
                 player.Top -= speed;
             }
@@ -110,19 +110,52 @@ namespace EscapeCovid
             {
                 goDown = false;
             }
-            if(e.KeyCode == Keys.Space)
+            if(e.KeyCode == Keys.Space && ammo > 0)
             {
+                ammo--;
                 ShootBullet(facing);
+
+                if(ammo < 1)
+                {
+                    DropAmmo();
+                }
             }
         }
 
         private void ShootBullet(string direction)
         {
+            Bullet shootBullet = new Bullet();
+            shootBullet.direction = direction;
+            shootBullet.bulletLeft = player.Left + (player.Width / 2) + 18;
+            shootBullet.bulletTop = player.Top + (player.Height / 2) + 18;
+            shootBullet.MakeBullet(this);
 
         }
 
         private void MakeVirus()
         {
+            PictureBox virus = new PictureBox();
+            virus.Tag = "virus";
+            virus.Image = Properties.Resources.virus1;
+            virus.Left = randNum.Next(0, 900);
+            virus.Top = randNum.Next(0, 800);
+            virus.SizeMode = PictureBoxSizeMode.AutoSize;
+            virusesList.Add(virus);
+            this.Controls.Add(virus);
+            player.BringToFront();
+        }
+
+        private void DropAmmo()
+        {
+            PictureBox ammo = new PictureBox();
+            ammo.Image = Properties.Resources.ammo;
+            ammo.SizeMode = PictureBoxSizeMode.AutoSize;
+            ammo.Left = randNum.Next(10, this.ClientSize.Width - ammo.Width);
+            ammo.Top = randNum.Next(10, this.ClientSize.Height - ammo.Height);
+            ammo.Tag = "ammo";
+            this.Controls.Add(ammo);
+            ammo.BringToFront();
+            player.BringToFront();
 
         }
 

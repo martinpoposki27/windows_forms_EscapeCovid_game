@@ -8,3 +8,13 @@ C:\Users\popos\source\repos\EscapeCovid\EscapeCovid\obj\Debug\EscapeCovid.csproj
 C:\Users\popos\source\repos\EscapeCovid\EscapeCovid\obj\Debug\EscapeCovid.csproj.CoreCompileInputs.cache
 C:\Users\popos\source\repos\EscapeCovid\EscapeCovid\obj\Debug\EscapeCovid.exe
 C:\Users\popos\source\repos\EscapeCovid\EscapeCovid\obj\Debug\EscapeCovid.pdb
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\bin\Debug\EscapeCovid.exe.config
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\bin\Debug\EscapeCovid.exe
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\bin\Debug\EscapeCovid.pdb
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.csprojAssemblyReference.cache
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.EscapeCovid.resources
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.Properties.Resources.resources
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.csproj.GenerateResource.cache
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.csproj.CoreCompileInputs.cache
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.exe
+C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.pdb

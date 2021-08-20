@@ -20,7 +20,7 @@ namespace EscapeCovid
         public void MakeBullet(Form form)
         {
             bullet.BackColor = Color.GreenYellow;
-            bullet.Size = new Size(8, 5);
+            bullet.Size = new Size(5, 5);
             bullet.Tag = "bullet";
             bullet.Left = bulletLeft;
             bullet.Top = bulletTop;

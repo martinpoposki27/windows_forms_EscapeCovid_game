@@ -18,3 +18,13 @@ C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.csproj.G
 C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.csproj.CoreCompileInputs.cache
 C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.exe
 C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.pdb
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\bin\Debug\EscapeCovid.exe.config
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\bin\Debug\EscapeCovid.exe
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\bin\Debug\EscapeCovid.pdb
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.csprojAssemblyReference.cache
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.EscapeCovid.resources
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.Properties.Resources.resources
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.csproj.GenerateResource.cache
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.csproj.CoreCompileInputs.cache
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.exe
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.pdb

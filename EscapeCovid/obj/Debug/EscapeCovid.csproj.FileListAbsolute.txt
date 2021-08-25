@@ -29,3 +29,4 @@ C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_19
 C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.exe
 C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.pdb
 C:\Users\popos\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.help.resources
+C:\Users\saras\Desktop\Vizuelno-Programiranje\proektVP_193026_193004\proektVP_193004_193026\EscapeCovid\obj\Debug\EscapeCovid.help.resources

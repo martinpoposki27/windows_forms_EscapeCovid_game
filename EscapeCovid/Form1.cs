@@ -31,7 +31,7 @@ namespace EscapeCovid
         public EscapeCovid()
         {
             InitializeComponent();
-            RestartGame();
+            StartGame();
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
@@ -196,7 +196,7 @@ namespace EscapeCovid
             {
                 goDown = false;
             }
-            if(e.KeyCode == Keys.Space && ammo > 0 && gameOver ==false)
+            if(e.KeyCode == Keys.Space && ammo > 0 && gameOver == false && Paused == false)
             {
                 ammo--;
                 ShootBullet(facing);
@@ -246,7 +246,36 @@ namespace EscapeCovid
             pauseToolStripMenuItem.Text = "Start";
             GameTimer.Stop();
             Paused = true;
-            RestartGame();
+            if (MessageBox.Show("Дали сакате да почнете нова игра?", "Escape Covid <3", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                player.Image = Properties.Resources.up1;
+                foreach (PictureBox i in virusesList)
+                {
+                    this.Controls.Remove(i);
+
+                }
+                virusesList.Clear();
+                for (int i = 0; i < 3; i++)
+                {
+                    MakeVirus();
+                }
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+                gameOver = false;
+                Paused = false;
+
+                playerHealth = 100;
+                score = 0;
+                ammo = 10;
+
+                GameTimer.Start();
+            }
+            else
+            {
+                
+            }
         }
 
         private void ShootBullet(string direction)
@@ -318,6 +347,33 @@ namespace EscapeCovid
             {
                 this.Close();
             }
+        }
+
+        private void StartGame()
+        {
+                player.Image = Properties.Resources.up1;
+                foreach (PictureBox i in virusesList)
+                {
+                    this.Controls.Remove(i);
+
+                }
+                virusesList.Clear();
+                for (int i = 0; i < 3; i++)
+                {
+                    MakeVirus();
+                }
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+                gameOver = false;
+                Paused = false;
+
+                playerHealth = 100;
+                score = 0;
+                ammo = 10;
+
+                GameTimer.Start();
         }
     }
 }

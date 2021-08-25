@@ -19,5 +19,68 @@ Windows Forms Project by Sara Stalevska and Martin Poposki
 MenuStrip нуди опција за почеток на нова игра (New), опција да се паузира тековната (Pause), како и копче Help кое проследува во нов прозорец со инструкции и краток опис на играта.
 Тајмерот на играта се паузира при секојм клик на на било која од опциите на MenuStrip, притоа играта се продолжува преку копчето Pause кое се трансформира во Start.
 
+Податочни структури:
+
+Бидејќи вакцините односно муницијата која се користи е посебен објект, искористивме посебна класа Bullet. Целта ни беше да имаме листа од објекти вирус кои полесно би ги отстранувале од екранот кога тие ќе бидат победени или допрени со играчот.
+
+public class Bullet
+    {
+        public string direction { get; set; }
+        public int bulletLeft { get; set; }
+        public int bulletTop { get; set; }
+        private int speed = 20;
+        private PictureBox bullet = new PictureBox();
+        private Timer bulletTimer = new Timer();
+        
+        public void MakeBullet(Form form)
+        {
+            bullet.BackColor = Color.DarkGreen;
+            bullet.Size = new Size(5, 5);
+            bullet.Tag = "bullet";
+            bullet.Left = bulletLeft;
+            bullet.Top = bulletTop;
+            bullet.BringToFront();
+
+            form.Controls.Add(bullet);
+
+            bulletTimer.Interval = speed;
+            bulletTimer.Tick += new EventHandler(BulletTimerEvent);
+            bulletTimer.Start();
+
+        }
+
+        private void BulletTimerEvent(object sender, EventArgs e)
+        {
+            if(direction == "left")
+            {
+                bullet.Left -= speed;
+            }
+            if(direction == "right")
+            {
+                bullet.Left += speed;
+            }
+            if(direction == "up")
+            {
+                bullet.Top -= speed;
+            }
+            if(direction == "down")
+            {
+                bullet.Top += speed;
+            }
+
+            if(bullet.Left < 10 || bullet.Left > 860 || bullet.Top < 10 || bullet.Top > 600)
+            {
+                bulletTimer.Stop();
+                bulletTimer.Dispose();
+                bullet.Dispose();
+                bulletTimer = null;
+                bullet = null;
+            }
+        }
+    }
+    
+    Изгледот на апликацијата е приложен на следните слики:
+    
+
 
  

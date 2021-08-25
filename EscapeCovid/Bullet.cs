@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace EscapeCovid
 {
+    [Serializable]
     public class Bullet
     {
         public string direction { get; set; }

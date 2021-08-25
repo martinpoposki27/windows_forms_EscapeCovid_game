@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EscapeCovid
 {
+    [Serializable]
     public partial class EscapeCovid : Form
     {
 
         bool goLeft, goRight, goUp, goDown, gameOver;
+        public bool Paused { get; set; }
         string facing = "up";
         int playerHealth = 100;
         int speed = 10;
         int ammo = 10;
-        int virusSpeed = 3;
+        int virusSpeed = 2;
         int score;
         Random randNum = new Random();
         List<PictureBox> virusesList = new List<PictureBox>();
@@ -37,10 +42,11 @@ namespace EscapeCovid
             }
             else
             {
-                gameOver = true;
-                player.Image = Properties.Resources.dead;
-                GameTimer.Stop();
 
+                gameOver = true;
+                player.Image = Properties.Resources.dead1;
+                GameTimer.Stop();
+                RestartGame();
             }
 
 
@@ -55,7 +61,7 @@ namespace EscapeCovid
             {
                 player.Left += speed;
             }
-            if (goUp == true && player.Top > 40)
+            if (goUp == true && player.Top > 70)
             {
                 player.Top -= speed;
             }
@@ -71,7 +77,7 @@ namespace EscapeCovid
                     {
                         this.Controls.Remove(X);
                         ((PictureBox)X).Dispose();
-                        ammo += 5;
+                        ammo += 7;
 
                     }
                 }
@@ -81,28 +87,32 @@ namespace EscapeCovid
 
                     if (player.Bounds.IntersectsWith(X.Bounds))
                     {
-                        playerHealth -= 1;
+                        playerHealth -= 5;
+                        this.Controls.Remove(X);
+                        ((PictureBox)X).Dispose();
+                        virusesList.Remove((PictureBox)X);
+                        MakeVirus();
                     }
 
                     if(X.Left > player.Left)
                     {
                         X.Left -= virusSpeed;
-                        ((PictureBox)X).Image = Properties.Resources.virus;
+                        ((PictureBox)X).Image = Properties.Resources.virus1;
                     }
                     if (X.Left < player.Left)
                     {
                         X.Left += virusSpeed;
-                        ((PictureBox)X).Image = Properties.Resources.virus;
+                        ((PictureBox)X).Image = Properties.Resources.virus1;
                     }
                     if (X.Top > player.Top)
                     {
                         X.Top -= virusSpeed;
-                        ((PictureBox)X).Image = Properties.Resources.virus;
+                        ((PictureBox)X).Image = Properties.Resources.virus1;
                     }
                     if (X.Top < player.Top)
                     {
                         X.Top += virusSpeed;
-                        ((PictureBox)X).Image = Properties.Resources.virus;
+                        ((PictureBox)X).Image = Properties.Resources.virus1;
                     }
                 }
 
@@ -117,7 +127,7 @@ namespace EscapeCovid
                             ((PictureBox)j).Dispose();
                             this.Controls.Remove(X);
                             ((PictureBox)X).Dispose();
-                            virusesList.Remove(  ((PictureBox)X)  );
+                            virusesList.Remove((PictureBox)X);
                             MakeVirus();
 
                         }
@@ -196,19 +206,55 @@ namespace EscapeCovid
                     DropAmmo();
                 }
             }
-            if(e.KeyCode == Keys.Enter && gameOver == true)
+            /*if(e.KeyCode == Keys.Enter && gameOver == true)
             {
                 RestartGame();
 
+            }*/
+        }
+
+        private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pauseToolStripMenuItem.Text.Equals("Pause"))
+            {
+                pauseToolStripMenuItem.Text = "Start";
+                GameTimer.Stop();
+                Paused = true;
             }
+            else if (pauseToolStripMenuItem.Text.Equals("Start"))
+            {
+                pauseToolStripMenuItem.Text = "Pause";
+                GameTimer.Start();
+                Paused = false;
+            }
+        }
+
+        
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pauseToolStripMenuItem.Text = "Start";
+            GameTimer.Stop();
+            Paused = true;
+            Form f = new help();
+            f.Show();
+
+        }
+
+        private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            pauseToolStripMenuItem.Text = "Start";
+            GameTimer.Stop();
+            Paused = true;
+            RestartGame();
         }
 
         private void ShootBullet(string direction)
         {
             Bullet shootBullet = new Bullet();
             shootBullet.direction = direction;
-            shootBullet.bulletLeft = player.Left + (player.Width / 2) + 18;
-            shootBullet.bulletTop = player.Top + (player.Height / 2) + 18;
+            shootBullet.bulletLeft = player.Left + (player.Width / 2);
+            shootBullet.bulletTop = player.Top + (player.Height / 2);
             shootBullet.MakeBullet(this);
 
         }
@@ -232,7 +278,7 @@ namespace EscapeCovid
             ammo.Image = Properties.Resources.ammo;
             ammo.SizeMode = PictureBoxSizeMode.AutoSize;
             ammo.Left = randNum.Next(10, this.ClientSize.Width - ammo.Width);
-            ammo.Top = randNum.Next(50, this.ClientSize.Height - ammo.Height);
+            ammo.Top = randNum.Next(100, this.ClientSize.Height - ammo.Height);
             ammo.Tag = "ammo";
             this.Controls.Add(ammo);
             ammo.BringToFront();
@@ -242,29 +288,36 @@ namespace EscapeCovid
 
         private void RestartGame()
         {
-            player.Image = Properties.Resources.up1;
-            foreach(PictureBox i in virusesList)
+            if (MessageBox.Show("Дали сакате да почнете нова игра?", "Escape Covid <3", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                this.Controls.Remove(i);
+                player.Image = Properties.Resources.up1;
+                foreach (PictureBox i in virusesList)
+                {
+                    this.Controls.Remove(i);
 
+                }
+                virusesList.Clear();
+                for (int i = 0; i < 3; i++)
+                {
+                    MakeVirus();
+                }
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+                gameOver = false;
+                Paused = false;
+
+                playerHealth = 100;
+                score = 0;
+                ammo = 10;
+
+                GameTimer.Start();
             }
-            virusesList.Clear();
-            for(int i=0; i<3; i++)
+            else
             {
-                MakeVirus();
+                this.Close();
             }
-            goUp = false;
-            goDown = false;
-            goLeft = false;
-            goRight = false;
-            gameOver = false;
-
-            playerHealth = 100;
-            score = 0;
-            ammo = 10;
-
-            GameTimer.Start();
-
         }
     }
 }

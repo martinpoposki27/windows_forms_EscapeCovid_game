@@ -33,8 +33,13 @@
             this.txtKills = new System.Windows.Forms.Label();
             this.txtImunitet = new System.Windows.Forms.Label();
             this.healthBar = new System.Windows.Forms.ProgressBar();
-            this.player = new System.Windows.Forms.PictureBox();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.player = new System.Windows.Forms.PictureBox();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +48,7 @@
             this.txtAmmo.AutoSize = true;
             this.txtAmmo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmmo.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtAmmo.Location = new System.Drawing.Point(12, 9);
+            this.txtAmmo.Location = new System.Drawing.Point(12, 28);
             this.txtAmmo.Name = "txtAmmo";
             this.txtAmmo.Size = new System.Drawing.Size(131, 25);
             this.txtAmmo.TabIndex = 0;
@@ -54,7 +59,7 @@
             this.txtKills.AutoSize = true;
             this.txtKills.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKills.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtKills.Location = new System.Drawing.Point(270, 9);
+            this.txtKills.Location = new System.Drawing.Point(272, 28);
             this.txtKills.Name = "txtKills";
             this.txtKills.Size = new System.Drawing.Size(183, 25);
             this.txtKills.TabIndex = 1;
@@ -65,7 +70,7 @@
             this.txtImunitet.AutoSize = true;
             this.txtImunitet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtImunitet.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtImunitet.Location = new System.Drawing.Point(571, 9);
+            this.txtImunitet.Location = new System.Drawing.Point(571, 28);
             this.txtImunitet.Name = "txtImunitet";
             this.txtImunitet.Size = new System.Drawing.Size(124, 25);
             this.txtImunitet.TabIndex = 2;
@@ -73,11 +78,43 @@
             // 
             // healthBar
             // 
-            this.healthBar.Location = new System.Drawing.Point(701, 11);
+            this.healthBar.Location = new System.Drawing.Point(701, 30);
             this.healthBar.Name = "healthBar";
             this.healthBar.Size = new System.Drawing.Size(211, 23);
             this.healthBar.TabIndex = 3;
             this.healthBar.Value = 100;
+            // 
+            // GameTimer
+            // 
+            this.GameTimer.Enabled = true;
+            this.GameTimer.Interval = 20;
+            this.GameTimer.Tick += new System.EventHandler(this.MainTimerEvent);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.pauseToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(924, 25);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // pauseToolStripMenuItem
+            // 
+            this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(54, 21);
+            this.pauseToolStripMenuItem.Text = "Pause";
+            this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
+            this.helpToolStripMenuItem.Text = "&Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // player
             // 
@@ -89,11 +126,12 @@
             this.player.TabIndex = 4;
             this.player.TabStop = false;
             // 
-            // GameTimer
+            // newToolStripMenuItem
             // 
-            this.GameTimer.Enabled = true;
-            this.GameTimer.Interval = 20;
-            this.GameTimer.Tick += new System.EventHandler(this.MainTimerEvent);
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(46, 21);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click_1);
             // 
             // EscapeCovid
             // 
@@ -106,10 +144,13 @@
             this.Controls.Add(this.txtImunitet);
             this.Controls.Add(this.txtKills);
             this.Controls.Add(this.txtAmmo);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "EscapeCovid";
             this.Text = "Escape Covid Game <3";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -124,6 +165,10 @@
         private System.Windows.Forms.ProgressBar healthBar;
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
     }
 }
 

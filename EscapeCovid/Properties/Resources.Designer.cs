@@ -103,6 +103,16 @@ namespace EscapeCovid.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dead1 {
+            get {
+                object obj = ResourceManager.GetObject("dead1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap down {
             get {
                 object obj = ResourceManager.GetObject("down", resourceCulture);
@@ -116,6 +126,16 @@ namespace EscapeCovid.Properties {
         internal static System.Drawing.Bitmap down1 {
             get {
                 object obj = ResourceManager.GetObject("down1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap help_page {
+            get {
+                object obj = ResourceManager.GetObject("help_page", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +216,16 @@ namespace EscapeCovid.Properties {
         internal static System.Drawing.Bitmap virus1 {
             get {
                 object obj = ResourceManager.GetObject("virus1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap virus11 {
+            get {
+                object obj = ResourceManager.GetObject("virus11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

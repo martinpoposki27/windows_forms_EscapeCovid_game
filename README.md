@@ -1,10 +1,8 @@
-# proektVP_193004_193026
-
-Линк до repo на GitHub: https://github.com/martinpoposki27/proektVP_193004_193026.git
+# Game in Windows Forms, EscapeCovid
 
 EscapeCovid
 
-Windows Forms Project by Sara Stalevska and Martin Poposki
+Windows Forms Project
 
 Опис на апликацијата:
 
